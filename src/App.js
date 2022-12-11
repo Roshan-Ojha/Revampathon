@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./Components/Popup/Login.css";
+import "./CSS/Homepage.css";
+import "./App.css";
+import Main from "./Components/Main";
+import { AdContextProvider } from "./store/noAddContext";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AdContextProvider>
+
+      <Main></Main>
+    </AdContextProvider>
     </div>
   );
 }
