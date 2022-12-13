@@ -14,8 +14,17 @@ import AdContext from "../store/noAddContext";
 import Navbar from "../Pageparts/Navbar";
 import sound from "../assets/check.mp3";
 import CategoryBar from "../Pageparts/Categorybar";
+import daraz from "../assets/daraz.png";
+import berger from "../assets/berger.png";
+import Ad from "./Ad/Ad";
+import Iframe from "./Popup/Iframe";
 function Homepage(props) {
   const useAdContext = useContext(AdContext);
+  const [showiframe, setshowiframe] = useState(null);
+
+  function setshowiframeHandler() {
+    setshowiframe(null);
+  }
 
   return (
     <div
@@ -24,7 +33,19 @@ function Homepage(props) {
       }
     >
       <Navbar></Navbar>
-
+      {!useAdContext.hidead && (
+        <div
+          style={{ width: "auto", display: "flex", justifyContent: "center" }}
+        >
+          <img src={daraz} onClick={() => setshowiframe("first")}></img>
+          {showiframe === "first" && (
+            <Iframe
+              src={"https://www.daraz.com.np/"}
+              setshow={setshowiframeHandler}
+            ></Iframe>
+          )}
+        </div>
+      )}
       <div className="insideHomepage">
         <CategoryBar></CategoryBar>
         <div className="newspart">
@@ -97,6 +118,26 @@ function Homepage(props) {
           </div>
         </div>
       </div>
+      {!useAdContext.hidead && (
+        <div
+          style={{
+            width: "auto",
+            display: "flex",
+            justifyContent: "center",
+            margin: "100px",
+          }}
+        >
+          <img src={berger} onClick={() => setshowiframe("second")}></img>
+          {showiframe === "second" && (
+            <Iframe
+              src={
+                "https://www.bergernepal.com/product-detail/silk-breathe-easy"
+              }
+              setshow={setshowiframeHandler}
+            ></Iframe>
+          )}
+        </div>
+      )}
     </div>
   );
 }

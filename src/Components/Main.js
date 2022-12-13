@@ -5,6 +5,7 @@ import MagazineLogin from "./Popup/MagazineLogin";
 import AddMagazine from "./Magazine/AddMagazine";
 import MagazineHome from "./Magazine/MagazineHome";
 import { Route, Routes } from "react-router-dom";
+import Iframe from "./Popup/Iframe";
 
 const Loginpopup = lazy(() => import("./Popup/PopupLogin"));
 
@@ -12,6 +13,7 @@ function Main() {
   const useAdContext = useContext(AdContext);
   return (
     <div>
+    {/* <Iframe></Iframe> */}
       
       {useAdContext.blockAd && (
         <Suspense fallback={<p>Loading</p>}>

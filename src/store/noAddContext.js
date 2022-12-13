@@ -5,6 +5,7 @@ const AdContext = createContext({
   magazine: false,
   wantaddmagazine: false,
   canmagazine: false,
+  hidead:false
 });
 
 export const AdContextProvider = (props) => {
@@ -12,6 +13,7 @@ export const AdContextProvider = (props) => {
   const [magazine, setmagazine] = useState(false);
   const [wantaddmagazine, setwantaddmagazine] = useState(false);
   const [canmagazine, setcanmagazine] = useState(false);
+  const[hidead,sethidead]= useState(false);
 
   const blockAdFunction = () => {
     setBlockAd(true);
@@ -44,6 +46,11 @@ export const AdContextProvider = (props) => {
     setcanmagazine(false);
   };
 
+  const hideadFunction=()=>{
+    sethidead(true)
+  }
+ 
+
   return (
     <AdContext.Provider
       value={{
@@ -59,6 +66,8 @@ export const AdContextProvider = (props) => {
         showcanmagazine: canmagazineFunction,
         showcannotmagazine: cannotmagazineFunction,
         canmagazine: canmagazine,
+        hideadFunction:hideadFunction,
+        hidead:hidead
       }}
     >
       {props.children}

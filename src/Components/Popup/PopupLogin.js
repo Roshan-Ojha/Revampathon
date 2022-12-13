@@ -1,9 +1,17 @@
 import "./Login.css";
 import logo from "../../assets/etaja_logo.png";
 import AdContext from "../../store/noAddContext";
+import close from "../../assets/x.png";
+import "./Iframe.css";
 import { useContext } from "react";
 function Loginpopup(props) {
   const useAdContext = useContext(AdContext);
+  function submithandler(event) {
+    event.preventDefault();
+    useAdContext.hideadFunction();
+    useAdContext.showad();
+  }
+
   return (
     <div className="Login">
       <div className="Sagarmatha">
@@ -13,7 +21,7 @@ function Loginpopup(props) {
       <div className="welcome">
         Welcome to &nbsp;<span>Taja Khabar</span>
       </div>
-      <form>
+      <form onSubmit={submithandler}>
         <div className="Email">
           <input placeholder="Email"></input>
         </div>

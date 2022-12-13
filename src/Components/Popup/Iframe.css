@@ -1,0 +1,35 @@
+.showiframe{
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 550px;
+    
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    background-color: white;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -225px;
+    margin-left: -600px;
+    z-index: 1000;
+    -moz-box-shadow: 0 0 3px #ccc;
+-webkit-box-shadow: 0 0 3px #ccc;
+box-shadow: 0 0 5px #ccc;
+}
+
+.iframeimage{
+    width: 20px;
+    height: 20px;
+    z-index: 1000;
+    margin-bottom: 10px;
+    margin-left: 1150px;
+    z-index: 100000;
+}
+
+.iframeimage img{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
