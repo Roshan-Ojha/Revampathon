@@ -1,4 +1,5 @@
 import "../CSS/Homepage.css";
+import speaker from "../assets/speaker.png";
 import newsimage from "../assets/mountain.png";
 import logo from "../assets/etaja_logo.png";
 import account from "../assets/user.png";
@@ -10,57 +11,22 @@ import Loginpopup from "./Popup/PopupLogin";
 import nologin from "../assets/noadicon.png";
 import { createContext, useContext, useEffect, useState } from "react";
 import AdContext from "../store/noAddContext";
+import Navbar from "../Pageparts/Navbar";
+import sound from "../assets/check.mp3";
+import CategoryBar from "../Pageparts/Categorybar";
 function Homepage(props) {
-  const [removeAd, setRemoveAd] = useState(false);
-
   const useAdContext = useContext(AdContext);
+
   return (
     <div
-      className={useAdContext.blockAd ? "loginhome" : "home"}
-      onClick={(e) => {
-        e.stopPropagation();
-        useAdContext.showad();
-      }}
+      className={
+        useAdContext.blockAd || useAdContext.magazine ? "loginhome" : "home"
+      }
     >
-      <div className="header">
-        <img src={logo} className="logo"></img>
-        <nav className="navbar">
-          <ul>
-            <li>गृह पृष्ठ</li>
-            <li>समुदाय</li>
-            <li>राशिफल</li>
-            <li>खेल</li>
-          </ul>
-        </nav>
-        <div className="rightside">
-          <img src={account} className="account"></img>
-          <div
-            className="removeadd"
-            onClick={() => {
-              useAdContext.adblock();
-            }}
-          >
-            <img src={nologin} className="noadd"></img>&nbsp;Remove Ads
-          </div>
-        </div>
-      </div>
+      <Navbar></Navbar>
 
       <div className="insideHomepage">
-        <div className="category">
-          <div className="head">शीर्षक</div>
-          <ul>
-            <li>समाचार</li>
-            <li>वित्त</li>
-            <li>जीवनशैली</li>
-            <li>मनोरञ्जन</li>
-            <li>अन्तर्राष्ट्रिय</li>
-            <li>प्रविधि</li>
-            <li>स्वास्थ्य सेवा</li>
-            <hr></hr>
-            <li>प्रविधि</li>
-            <li>स्वास्थ्य सेवा</li>
-          </ul>
-        </div>
+        <CategoryBar></CategoryBar>
         <div className="newspart">
           <div className="newscategory">राजनीति</div>
           <div className="photopart"></div>
@@ -68,7 +34,12 @@ function Homepage(props) {
           <div className="newscontent">
             <div className="newsHeadline">
               सात प्रदेशसभामा एमालेले क-कसलाई पठायो ?
+              <audio controls className="audio">
+                <source src={sound} type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
             </div>
+
             <div className="date">
               मंसिर २४, २०७९ <span>कान्तिपुर संवाददाता</span>
               <br></br>
@@ -96,7 +67,7 @@ function Homepage(props) {
         </div>
 
         <div className="relatedNews">
-          <div className="relatedheading">सम्बन्धित समाचार</div>
+          <div className="relatedheading">मुख्य समाचार</div>
           <div className="related">
             <img src={sports} />
             <div>

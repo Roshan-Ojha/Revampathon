@@ -57,7 +57,11 @@
     /* background-color: white; */
 }
 .category{
-    
+ 
+
+    position: fi;
+    left: 0;
+    top: 0;
     display: flex;
     /* border: 1px solid red; */
     border-radius: 20px;
@@ -214,5 +218,21 @@ br {
     color: #ce5e2d;
     cursor: pointer;
 }
+.categoryhr{
+    /* /* position: fixed; * */
+    position: relative;
+    /* width: 178px; */
+    /* left: 15px; */
+    border: 2px solid #eeeff2;
+    background-color: #eeeff2;
+}
+.audio::-webkit-media-controls-play-button,
+.audio::-webkit-media-controls-panel {
+  background-color: #20559B;
+  /* color: white !important; */
+}
 
+.audio::-webkit-media-controls-volume-slider{
+    color: white;
+}
 
