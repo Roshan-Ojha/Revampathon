@@ -4,6 +4,13 @@ import AdContext from "../../store/noAddContext";
 import { useContext } from "react";
 function MagazineLogin() {
   const useAdContext = useContext(AdContext);
+
+  function submihandler(event) {
+    event.preventDefault();
+    useAdContext.showwantAddmagazine();
+    useAdContext.hidemagazine();
+  }
+
   return (
     <div className="Login">
       <div className="Sagarmatha">
@@ -11,9 +18,9 @@ function MagazineLogin() {
       </div>
       <hr className="firsthr"></hr>
       <div className="welcome">
-        Welcome to &nbsp;<span>Taja Khabar</span>
+        Welcome magazine to &nbsp;<span>Taja Khabar</span>
       </div>
-      <form>
+      <form onSubmit={submihandler}>
         <div className="Email">
           <input placeholder="Email"></input>
         </div>

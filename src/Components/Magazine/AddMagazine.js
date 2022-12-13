@@ -48,7 +48,7 @@ function AddMagazine() {
           ...prevState,
           title: action.val,
         };
-      case "image":
+      case "photo":
         return {
           ...prevState,
           photo: action.val,
@@ -70,10 +70,10 @@ function AddMagazine() {
         useAdContext.blockAd || useAdContext.magazine ? "loginhome" : "home"
       }
     >
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
 
       <div className="insideHomepage">
-        <CategoryBar></CategoryBar>
+        {/* <CategoryBar></CategoryBar> */}
         <div className="magazinepart">
           <div className="newscategory">म्यागजीन</div>
           <div className="magzineform">
@@ -181,7 +181,7 @@ function AddMagazine() {
           </div>
         </div>
 
-        <div className="relatedNews">
+        {/* <div className="relatedNews">
           <div className="relatedheading">मुख्य समाचार</div>
           <div className="related">
             <img src={sports} />
@@ -210,7 +210,7 @@ function AddMagazine() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

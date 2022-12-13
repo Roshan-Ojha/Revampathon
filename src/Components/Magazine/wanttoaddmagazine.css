@@ -1,0 +1,29 @@
+.mainadd{
+    width: 110.13vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #f7e0d6;
+    padding: 10px;
+    border-radius: 20px;
+}
+.wantto{
+    color: #d36e43;
+    font-size: 25px; 
+}
+.articlebutton{
+    margin-top: 20px;
+    width: 153px;
+    height: 32px;
+    background-color: #f7e0d6;
+    border: 1px solid #d36e43;
+    border-radius: 5px;
+    color: #d36e43;
+}
+.articlebutton:hover{
+    border: 1px solid #d36e43;
+    background-color: #d36e43;
+    color: white;
+    cursor: pointer;
+}

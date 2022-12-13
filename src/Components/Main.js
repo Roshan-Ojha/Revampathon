@@ -3,6 +3,8 @@ import React, { lazy, Suspense, useContext } from "react";
 import AdContext from "../store/noAddContext";
 import MagazineLogin from "./Popup/MagazineLogin";
 import AddMagazine from "./Magazine/AddMagazine";
+import MagazineHome from "./Magazine/MagazineHome";
+import { Route, Routes } from "react-router-dom";
 
 const Loginpopup = lazy(() => import("./Popup/PopupLogin"));
 
@@ -10,7 +12,7 @@ function Main() {
   const useAdContext = useContext(AdContext);
   return (
     <div>
-      {/* <Homepage></Homepage> */}
+      
       {useAdContext.blockAd && (
         <Suspense fallback={<p>Loading</p>}>
           <Loginpopup></Loginpopup>
@@ -22,7 +24,11 @@ function Main() {
           <MagazineLogin></MagazineLogin>
         </Suspense>
       )}
-      <AddMagazine></AddMagazine>
+      <Routes>
+      <Route path="/" element={<Homepage/>}/>
+        <Route path="/magazine" element={<MagazineHome/>} />
+      </Routes>
+
     </div>
   );
 }

@@ -1,10 +1,17 @@
 import { Children, createContext, useState } from "react";
 
-const AdContext = createContext({ blockAd: false, magazine: false });
+const AdContext = createContext({
+  blockAd: false,
+  magazine: false,
+  wantaddmagazine: false,
+  canmagazine: false,
+});
 
 export const AdContextProvider = (props) => {
   const [blockAd, setBlockAd] = useState(false);
   const [magazine, setmagazine] = useState(false);
+  const [wantaddmagazine, setwantaddmagazine] = useState(false);
+  const [canmagazine, setcanmagazine] = useState(false);
 
   const blockAdFunction = () => {
     setBlockAd(true);
@@ -22,6 +29,21 @@ export const AdContextProvider = (props) => {
     setmagazine(false);
   };
 
+  const showwantaddmagazineFunction = () => {
+    setwantaddmagazine(true);
+  };
+
+  const hidewantaddmagazineFunction = () => {
+    setwantaddmagazine(false);
+  };
+
+  const canmagazineFunction = () => {
+    setcanmagazine(true);
+  };
+  const cannotmagazineFunction = () => {
+    setcanmagazine(false);
+  };
+
   return (
     <AdContext.Provider
       value={{
@@ -31,6 +53,12 @@ export const AdContextProvider = (props) => {
         showmagazine: showmagazineFunction,
         hidemagazine: hidemagazineFunction,
         magazine: magazine,
+        showwantAddmagazine: showwantaddmagazineFunction,
+        hidewantAddmagazine: hidewantaddmagazineFunction,
+        wantaddmagazine: wantaddmagazine,
+        showcanmagazine: canmagazineFunction,
+        showcannotmagazine: cannotmagazineFunction,
+        canmagazine: canmagazine,
       }}
     >
       {props.children}
